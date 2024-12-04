@@ -4,31 +4,37 @@
     <style name="Head1_B" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/pretendard_bold</item>
         <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Head2_B" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/pretendard_bold</item>
         <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Head3_B" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/pretendard_bold</item>
         <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Body1_B" parent="Widget.AppCompat.TextView">
         <item name="fontFamily">@font/pretendard_bold</item>
         <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Body2_B" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/pretendard_bold</item>
         <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Body3_B" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/pretendard_bold</item>
         <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
 
@@ -36,16 +42,19 @@
     <style name="Head1" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/pretendard_bold</item>
         <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Head2" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/pretendard_medium</item>
         <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Head3" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/pretendard_medium</item>
         <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Body1" parent="Widget.AppCompat.TextView">
@@ -56,10 +65,12 @@
     <style name="Body2" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/pretendard_medium</item>
         <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="Body3" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/pretendard_medium</item>
         <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 </resources>

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Android-Assignment</string>
+
+    <!-- 메인화면 -->
+    <string name="all_list">전체 리스트</string>
+    <string name="recent_read_list">최근 읽은 리스트</string>
 </resources>
