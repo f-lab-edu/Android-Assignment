@@ -7,6 +7,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
+import com.yongjincompany.android_assignment.feature.home.AllCardListFragment
+import com.yongjincompany.android_assignment.feature.home.RecentReadCardListFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,17 +24,17 @@ class MainActivity : AppCompatActivity() {
         val tabLayout: TabLayout = findViewById(R.id.tl_list_tab)
 
         //init fragment
-        replaceFragment(RecentReadFragment())
+        replaceFragment(RecentReadCardListFragment())
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 when (tab.position) {
                     0 -> {
-                        replaceFragment(RecentReadFragment())
+                        replaceFragment(RecentReadCardListFragment())
                     }
 
                     1 -> {
-                        replaceFragment(AllListFragment())
+                        replaceFragment(AllCardListFragment())
                     }
                 }
             }
