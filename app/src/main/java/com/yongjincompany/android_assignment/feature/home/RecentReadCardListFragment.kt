@@ -26,7 +26,7 @@ class RecentReadCardListFragment : Fragment(R.layout.fragment_recent_read_card_l
         recentReadCardListRecyclerView.adapter = recentReadCardListAdapter
         recentReadCardListRecyclerView.addItemDecoration(SpacingItemDecoration(30))
 
-        recentReadCardListAdapter?.submitList(RecentReadCardListManager.recentReadList)
+        recentReadCardListAdapter?.submitList(RecentReadCardListManager.recentReadCardList)
     }
 
     override fun onResume() {
@@ -37,7 +37,7 @@ class RecentReadCardListFragment : Fragment(R.layout.fragment_recent_read_card_l
                 delay(10000)
                 RecentReadCardListManager.removeRecentFirstReadCard(
                     {
-                        recentReadCardListAdapter?.submitList(RecentReadCardListManager.recentReadList)
+                        recentReadCardListAdapter?.submitList(RecentReadCardListManager.recentReadCardList)
                         Toast
                             .makeText(
                                 requireContext(),

@@ -1,25 +1,25 @@
 package com.yongjincompany.android_assignment.data
 
 object RecentReadCardListManager {
-    private val _recentReadList = mutableListOf<Card>()
-    val recentReadList
-        get() = _recentReadList.toList()
+    private val _recentReadCardList = mutableListOf<Card>()
+    val recentReadCardList
+        get() = _recentReadCardList.toList()
 
     fun addRecentReadCard(card: Card) {
-        val sameCardElementIndex = _recentReadList.indexOfFirst { it.id == card.id }
+        val sameCardElementIndex = _recentReadCardList.indexOfFirst { it.id == card.id }
         val NOT_CONTAIN_SUCH_ELEMENT = -1
 
         if (sameCardElementIndex == NOT_CONTAIN_SUCH_ELEMENT) {
-            _recentReadList.add(card)
+            _recentReadCardList.add(card)
         } else {
-            _recentReadList.removeAt(sameCardElementIndex)
-            _recentReadList.add(0, card)
+            _recentReadCardList.removeAt(sameCardElementIndex)
+            _recentReadCardList.add(0, card)
         }
     }
 
     fun removeRecentFirstReadCard(block: () -> Unit) {
-        if (_recentReadList.isNotEmpty()) {
-            _recentReadList.removeAt(0)
+        if (_recentReadCardList.isNotEmpty()) {
+            _recentReadCardList.removeAt(0)
             block()
         }
     }
