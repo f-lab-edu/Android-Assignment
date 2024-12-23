@@ -1,13 +1,14 @@
 package com.yongjincompany.android_assignment.data
 
 object RecentReadCardListManager {
+    const val NOT_CONTAIN_SUCH_ELEMENT = -1
+
     private val _recentReadCardList = mutableListOf<Card>()
     val recentReadCardList
         get() = _recentReadCardList.toList()
 
     fun addRecentReadCard(card: Card) {
         val sameCardElementIndex = _recentReadCardList.indexOfFirst { it.id == card.id }
-        val NOT_CONTAIN_SUCH_ELEMENT = -1
 
         if (sameCardElementIndex == NOT_CONTAIN_SUCH_ELEMENT) {
             _recentReadCardList.add(card)
