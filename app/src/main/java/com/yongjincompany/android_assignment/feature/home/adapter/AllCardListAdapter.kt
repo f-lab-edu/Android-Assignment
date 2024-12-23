@@ -17,14 +17,17 @@ class AllCardListAdapter(private val data: List<Card>) :
             .inflate(R.layout.item_card, parent, false)
 
         return CardViewHolder(view, {
-            RecentReadCardListManager.addRecentReadCard(data[it])
+            val cardData = data[it]
+            RecentReadCardListManager.addRecentReadCard(cardData)
 
             val intent = Intent(parent.context, CardDetailActivity::class.java)
-            intent.putExtra("card_id", data[it].id)
-            intent.putExtra("card_name", data[it].name)
-            intent.putExtra("card_img", data[it].img)
-            intent.putExtra("card_grade", data[it].grade.name)
-            intent.putExtra("card_description", data[it].description)
+            intent.apply {
+                putExtra("card_id", cardData.id)
+                putExtra("card_name", cardData.name)
+                putExtra("card_img", cardData.img)
+                putExtra("card_grade", cardData.grade.name)
+                putExtra("card_description", cardData.description)
+            }
             parent.context.startActivity(intent)
         })
     }
