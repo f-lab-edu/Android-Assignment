@@ -1,7 +1,7 @@
 package com.yongjincompany.android_assignment.data
 
 object RecentReadCardListManager {
-    const val NOT_CONTAIN_SUCH_ELEMENT = -1
+    private const val NOT_CONTAIN_SUCH_ELEMENT = -1
 
     private val _recentReadCardList = mutableListOf<Card>()
     val recentReadCardList
