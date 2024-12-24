@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Android-Assignment</string>
+
+    <!-- 메인 화면 -->
+    <string name="all_card_list">전체 카드</string>
+    <string name="recent_read_card_list">최근 확인한 카드</string>
+
+    <!-- 카드 상세보기 화면 -->
+    <string name="detail">상세보기</string>
+    <string name="card_grade">카드 등급</string>
+    <string name="card_id">카드 고유 번호</string>
+
+    <!-- 최근 읽은 카드 목록 화면 -->
+    <string name="remove_card_notice">10초가 지나 카드가 읽기 목록에서 사라집니다</string>
+
+    <!-- content description -->
+    <string name="card_img_content_description">카드 이미지</string>
+    <string name="logo_img_content_description">앱 로고</string>
+    <string name="back_img_content_description">뒤로가기 아이콘</string>
+
 </resources>
