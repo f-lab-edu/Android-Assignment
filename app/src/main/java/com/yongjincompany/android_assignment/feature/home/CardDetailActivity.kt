@@ -1,37 +1,49 @@
 package com.yongjincompany.android_assignment.feature.home
 
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.yongjincompany.android_assignment.R
+import com.yongjincompany.android_assignment.core.util.repeatOnLifecycleState
+import com.yongjincompany.android_assignment.core.util.toast
+import com.yongjincompany.android_assignment.data.RetrofitBuilder
+import com.yongjincompany.android_assignment.databinding.ActivityCardDetailBinding
 
-class CardDetailActivity: ComponentActivity() {
+class CardDetailActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityCardDetailBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_card_detail)
+        binding = ActivityCardDetailBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        val cardId: TextView = findViewById(R.id.detail_tv_card_id)
-        val cardName: TextView = findViewById(R.id.detail_tv_card_name)
-        val cardImg: ImageView = findViewById(R.id.detail_iv_card_img)
-        val cardGrade: TextView = findViewById(R.id.detail_tv_card_grade)
-        val cardDescription: TextView = findViewById(R.id.detail_tv_card_description)
-
-        val backBtn: ImageView = findViewById(R.id.detail_iv_back)
-
-        val receivedCardId = intent.getIntExtra("card_id", 0)
+        val receivedCardId = intent.getLongExtra("card_id", 0)
         val receivedCardName = intent.getStringExtra("card_name")
-        val receivedCardImg = intent.getIntExtra("card_img", 0)
+        val receivedCardImg = intent.getStringExtra("card_img")
         val receivedCardGrade = intent.getStringExtra("card_grade")
         val receivedCardDescription = intent.getStringExtra("card_description")
 
-        cardId.text = receivedCardId.toString()
-        cardName.text = receivedCardName
-        cardImg.setImageResource(receivedCardImg)
-        cardGrade.text = receivedCardGrade
-        cardDescription.text = receivedCardDescription
+        repeatOnLifecycleState {
+            runCatching {
+                RetrofitBuilder.cardApi.changeCardReadStatus(
+                    receivedCardId,
+                    true
+                )
+            }.onFailure {
+                baseContext.toast(getString(R.string.cant_save_card_read))
+            }
+        }
 
-        backBtn.setOnClickListener {
+        binding.tvCardId.text = receivedCardId.toString()
+        binding.tvCardName.text = receivedCardName
+        binding.tvCardGrade.text = receivedCardGrade
+        binding.tvCardDescription.text = receivedCardDescription
+        Glide.with(this)
+            .load(receivedCardImg)
+            .into(binding.ivCardImg)
+
+        binding.ivBack.setOnClickListener {
             finish()
         }
 
