@@ -9,9 +9,14 @@
     <string name="detail">상세보기</string>
     <string name="card_grade">카드 등급</string>
     <string name="card_id">카드 고유 번호</string>
+    <string name="cant_save_card_read">카드 읽기 상태를 저장할 수 없습니다. 다시 시도해주세요</string>
 
     <!-- 최근 읽은 카드 목록 화면 -->
+    <string name="cant_fetch_card_list">최근 읽은 카드 목록을 받아올 수 없습니다. 다시 시도해주세요</string>
     <string name="remove_card_notice">10초가 지나 카드가 읽기 목록에서 사라집니다</string>
+
+    <!-- 모든 카드 목록 화면 -->
+    <string name="cant_all_card_read">전체 카드 정보를 받아올 수 없습니다. 다시 시도해주세요</string>
 
     <!-- content description -->
     <string name="card_img_content_description">카드 이미지</string>
