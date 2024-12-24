@@ -18,7 +18,7 @@ class CardDetailActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val receivedCardId = intent.getIntExtra("card_id", 0)
+        val receivedCardId = intent.getLongExtra("card_id", 0)
         val receivedCardName = intent.getStringExtra("card_name")
         val receivedCardImg = intent.getStringExtra("card_img")
         val receivedCardGrade = intent.getStringExtra("card_grade")
@@ -27,7 +27,7 @@ class CardDetailActivity : AppCompatActivity() {
         repeatOnLifecycleState {
             runCatching {
                 RetrofitBuilder.cardApi.changeCardReadStatus(
-                    receivedCardId.toLong(),
+                    receivedCardId,
                     true
                 )
             }.onFailure {
