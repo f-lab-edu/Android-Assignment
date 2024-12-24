@@ -1,15 +1,13 @@
 package com.yongjincompany.android_assignment.feature.home
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.yongjincompany.android_assignment.R
 import com.yongjincompany.android_assignment.core.util.repeatOnLifecycleState
 import com.yongjincompany.android_assignment.core.util.toast
 import com.yongjincompany.android_assignment.data.RetrofitBuilder
 import com.yongjincompany.android_assignment.databinding.ActivityCardDetailBinding
-import kotlinx.coroutines.launch
 
 class CardDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCardDetailBinding
@@ -22,7 +20,7 @@ class CardDetailActivity : AppCompatActivity() {
 
         val receivedCardId = intent.getIntExtra("card_id", 0)
         val receivedCardName = intent.getStringExtra("card_name")
-        val receivedCardImg = intent.getIntExtra("card_img", 0)
+        val receivedCardImg = intent.getStringExtra("card_img")
         val receivedCardGrade = intent.getStringExtra("card_grade")
         val receivedCardDescription = intent.getStringExtra("card_description")
 
@@ -39,9 +37,11 @@ class CardDetailActivity : AppCompatActivity() {
 
         binding.tvCardId.text = receivedCardId.toString()
         binding.tvCardName.text = receivedCardName
-        binding.ivCardImg.setImageResource(receivedCardImg)
         binding.tvCardGrade.text = receivedCardGrade
         binding.tvCardDescription.text = receivedCardDescription
+        Glide.with(this)
+            .load(receivedCardImg)
+            .into(binding.ivCardImg)
 
         binding.ivBack.setOnClickListener {
             finish()
