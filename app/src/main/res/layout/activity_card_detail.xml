@@ -13,17 +13,17 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/detail_iv_back"
+            android:id="@+id/iv_back"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:contentDescription="@string/back_img_content_description"
             android:src="@drawable/ic_arrow_left"
-            app:layout_constraintBottom_toBottomOf="@+id/detail_tv_title"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/detail_tv_title" />
+            app:layout_constraintTop_toTopOf="@+id/tv_title" />
 
         <TextView
-            android:id="@+id/detail_tv_title"
+            android:id="@+id/tv_title"
             style="@style/Head1_B"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/detail_iv_card_img"
+        android:id="@+id/iv_card_img"
         android:layout_width="180dp"
         android:layout_height="240dp"
         android:layout_marginStart="16dp"
@@ -47,61 +47,61 @@
         tools:src="@drawable/sorry_yongjin_card_img" />
 
     <TextView
-        android:id="@+id/detail_tv_card_name"
+        android:id="@+id/tv_card_name"
         style="@style/Head2_B"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/detail_iv_card_img"
-        app:layout_constraintTop_toTopOf="@+id/detail_iv_card_img"
+        app:layout_constraintStart_toEndOf="@+id/iv_card_img"
+        app:layout_constraintTop_toTopOf="@+id/iv_card_img"
         tools:text="늦잠 잔 이용진" />
 
     <TextView
-        android:id="@+id/detail_tv_card_grade_title"
+        android:id="@+id/tv_card_grade_title"
         style="@style/Body1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/card_grade"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/detail_iv_card_img"
-        app:layout_constraintTop_toBottomOf="@+id/detail_tv_card_name" />
+        app:layout_constraintStart_toEndOf="@+id/iv_card_img"
+        app:layout_constraintTop_toBottomOf="@+id/tv_card_name" />
 
     <TextView
-        android:id="@+id/detail_tv_card_grade"
+        android:id="@+id/tv_card_grade"
         style="@style/Head1_B"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/detail_tv_card_grade_title"
-        app:layout_constraintStart_toStartOf="@+id/detail_tv_card_grade_title"
-        app:layout_constraintTop_toBottomOf="@+id/detail_tv_card_grade_title"
+        app:layout_constraintEnd_toEndOf="@+id/tv_card_grade_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_card_grade_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_card_grade_title"
         tools:text="A" />
 
     <TextView
-        android:id="@+id/detail_tv_card_id_title"
+        android:id="@+id/tv_card_id_title"
         style="@style/Body1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/card_id"
-        app:layout_constraintBottom_toBottomOf="@+id/detail_iv_card_img"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_card_img"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/detail_iv_card_img"
-        app:layout_constraintTop_toBottomOf="@+id/detail_tv_card_grade_title" />
+        app:layout_constraintStart_toEndOf="@+id/iv_card_img"
+        app:layout_constraintTop_toBottomOf="@+id/tv_card_grade_title" />
 
     <TextView
-        android:id="@+id/detail_tv_card_id"
+        android:id="@+id/tv_card_id"
         style="@style/Head1_B"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/detail_tv_card_id_title"
-        app:layout_constraintStart_toStartOf="@+id/detail_tv_card_id_title"
-        app:layout_constraintTop_toBottomOf="@+id/detail_tv_card_id_title"
+        app:layout_constraintEnd_toEndOf="@+id/tv_card_id_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_card_id_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_card_id_title"
         tools:text="1" />
 
     <TextView
-        android:id="@+id/detail_tv_card_description"
+        android:id="@+id/tv_card_description"
         style="@style/Body2"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -110,7 +110,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_iv_card_img"
+        app:layout_constraintTop_toBottomOf="@+id/iv_card_img"
         tools:text="왜 이 사람은 책상 위에 올라가 사죄하고 있을까요? 전 알아요 그는 세미콜론이라는 동아리를 나가서 새 길을 개척하겠다는 포부를 가지고 있다는 것을" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
