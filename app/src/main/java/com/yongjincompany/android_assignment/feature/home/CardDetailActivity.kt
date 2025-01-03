@@ -1,39 +1,67 @@
 package com.yongjincompany.android_assignment.feature.home
 
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.activity.ComponentActivity
-import com.yongjincompany.android_assignment.R
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
+import com.yongjincompany.android_assignment.core.util.repeatOnLifecycleState
+import com.yongjincompany.android_assignment.core.util.toast
+import com.yongjincompany.android_assignment.data.RepositoryBuilder
+import com.yongjincompany.android_assignment.databinding.ActivityCardDetailBinding
+import com.yongjincompany.android_assignment.feature.home.viewmodel.CardDetailFailed
+import com.yongjincompany.android_assignment.feature.home.viewmodel.CardDetailViewModel
+import com.yongjincompany.android_assignment.feature.home.viewmodel.CardDetailViewModelFactory
+import com.yongjincompany.android_assignment.feature.home.viewmodel.ChangeCardReadStatusSuccess
 
-class CardDetailActivity: ComponentActivity() {
+class CardDetailActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityCardDetailBinding
+    private lateinit var vm : CardDetailViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_card_detail)
+        binding = ActivityCardDetailBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        val cardId: TextView = findViewById(R.id.detail_tv_card_id)
-        val cardName: TextView = findViewById(R.id.detail_tv_card_name)
-        val cardImg: ImageView = findViewById(R.id.detail_iv_card_img)
-        val cardGrade: TextView = findViewById(R.id.detail_tv_card_grade)
-        val cardDescription: TextView = findViewById(R.id.detail_tv_card_description)
+        init()
+        observe()
+    }
 
-        val backBtn: ImageView = findViewById(R.id.detail_iv_back)
+    private fun init() {
+        val receivedCardId = intent.getLongExtra("card_id", 0)
 
-        val receivedCardId = intent.getIntExtra("card_id", 0)
-        val receivedCardName = intent.getStringExtra("card_name")
-        val receivedCardImg = intent.getIntExtra("card_img", 0)
-        val receivedCardGrade = intent.getStringExtra("card_grade")
-        val receivedCardDescription = intent.getStringExtra("card_description")
+        val viewModelFactory = CardDetailViewModelFactory(RepositoryBuilder.cardRepository)
+        vm = ViewModelProvider(this, viewModelFactory)[CardDetailViewModel::class.java]
 
-        cardId.text = receivedCardId.toString()
-        cardName.text = receivedCardName
-        cardImg.setImageResource(receivedCardImg)
-        cardGrade.text = receivedCardGrade
-        cardDescription.text = receivedCardDescription
+        vm.changeCardReadStatus(
+            receivedCardId,
+            true
+        )
 
-        backBtn.setOnClickListener {
+        binding.ivBack.setOnClickListener {
             finish()
         }
+    }
 
+    private fun observe() {
+        repeatOnLifecycleState {
+            vm.event.collect {
+                when(it) {
+                    is ChangeCardReadStatusSuccess -> {
+                        binding.tvCardId.text = it.data.id.toString()
+                        binding.tvCardName.text = it.data.name
+                        binding.tvCardGrade.text = it.data.grade.toString()
+                        binding.tvCardDescription.text = it.data.description
+                        Glide.with(this@CardDetailActivity)
+                            .load(it.data.imageUrl)
+                            .into(binding.ivCardImg)
+                    }
+
+                    is CardDetailFailed -> {
+                        baseContext.toast(getString(it.errorMessage))
+                    }
+                }
+            }
+        }
     }
 }
