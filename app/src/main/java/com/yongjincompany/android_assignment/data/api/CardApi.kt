@@ -17,5 +17,5 @@ interface CardApi {
     suspend fun changeCardReadStatus(
         @Path("id") id: Long,
         @Query("isRead") isRead: Boolean
-    )
+    ): Card
 }
