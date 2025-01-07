@@ -5,11 +5,16 @@ import androidx.lifecycle.viewModelScope
 import com.yongjincompany.android_assignment.R
 import com.yongjincompany.android_assignment.data.remote.model.response.Card
 import com.yongjincompany.android_assignment.data.repository.CardRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class RecentReadCardListViewModel(private val cardRepository: CardRepository) : ViewModel() {
+@HiltViewModel
+class RecentReadCardListViewModel @Inject constructor(
+    private val cardRepository: CardRepository
+) : ViewModel() {
     private val _event = MutableSharedFlow<RecentReadCardListEvent>()
     val event = _event.asSharedFlow()
 

@@ -11,7 +11,9 @@ import com.yongjincompany.android_assignment.databinding.ActivityCardDetailBindi
 import com.yongjincompany.android_assignment.databinding.ActivityMainBinding
 import com.yongjincompany.android_assignment.feature.home.AllCardListFragment
 import com.yongjincompany.android_assignment.feature.home.RecentReadCardListFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 

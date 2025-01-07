@@ -1,21 +1,21 @@
 package com.yongjincompany.android_assignment.feature.home
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.yongjincompany.android_assignment.core.util.repeatOnLifecycleState
 import com.yongjincompany.android_assignment.core.util.toast
-import com.yongjincompany.android_assignment.data.RepositoryBuilder
 import com.yongjincompany.android_assignment.databinding.ActivityCardDetailBinding
 import com.yongjincompany.android_assignment.feature.home.viewmodel.CardDetailFailed
 import com.yongjincompany.android_assignment.feature.home.viewmodel.CardDetailViewModel
-import com.yongjincompany.android_assignment.feature.home.viewmodel.CardDetailViewModelFactory
 import com.yongjincompany.android_assignment.feature.home.viewmodel.ChangeCardReadStatusSuccess
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CardDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCardDetailBinding
-    private lateinit var vm : CardDetailViewModel
+    private val vm : CardDetailViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,9 +29,6 @@ class CardDetailActivity : AppCompatActivity() {
 
     private fun init() {
         val receivedCardId = intent.getLongExtra("card_id", 0)
-
-        val viewModelFactory = CardDetailViewModelFactory(RepositoryBuilder.cardRepository)
-        vm = ViewModelProvider(this, viewModelFactory)[CardDetailViewModel::class.java]
 
         vm.changeCardReadStatus(
             receivedCardId,

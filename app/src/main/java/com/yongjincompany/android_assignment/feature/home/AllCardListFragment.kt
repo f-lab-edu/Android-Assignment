@@ -5,21 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import com.yongjincompany.android_assignment.core.util.SpacingItemDecoration
 import com.yongjincompany.android_assignment.core.util.repeatOnLifecycleState
-import com.yongjincompany.android_assignment.data.RepositoryBuilder
-import com.yongjincompany.android_assignment.data.local.AppDatabase
 import com.yongjincompany.android_assignment.databinding.FragmentAllCardListBinding
 import com.yongjincompany.android_assignment.feature.home.adapter.AllCardListAdapter
 import com.yongjincompany.android_assignment.feature.home.viewmodel.AllCardListViewModel
-import com.yongjincompany.android_assignment.feature.home.viewmodel.AllCardListViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AllCardListFragment : Fragment() {
     private var _binding: FragmentAllCardListBinding? = null
     private val binding get() = _binding!!
     private lateinit var allCardListAdapter: AllCardListAdapter
-    private lateinit var vm: AllCardListViewModel
+    private val vm: AllCardListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,11 +38,6 @@ class AllCardListFragment : Fragment() {
     }
 
     private fun init() {
-        val db = AppDatabase.getDatabase(requireContext())
-        val cardDao = db.cardDao()
-        val viewModelFactory = AllCardListViewModelFactory(RepositoryBuilder.cardRepository, cardDao)
-        vm = ViewModelProvider(this, viewModelFactory)[AllCardListViewModel::class.java]
-
         allCardListAdapter = AllCardListAdapter()
         binding.rvAllCardList.adapter = allCardListAdapter
         binding.rvAllCardList.addItemDecoration(SpacingItemDecoration(30))
