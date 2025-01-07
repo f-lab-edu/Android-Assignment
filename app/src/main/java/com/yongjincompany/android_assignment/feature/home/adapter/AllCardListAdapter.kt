@@ -4,7 +4,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.yongjincompany.android_assignment.data.model.response.Card
+import com.yongjincompany.android_assignment.data.remote.model.response.Card
 import com.yongjincompany.android_assignment.databinding.ItemCardBinding
 import com.yongjincompany.android_assignment.feature.home.CardDetailActivity
 

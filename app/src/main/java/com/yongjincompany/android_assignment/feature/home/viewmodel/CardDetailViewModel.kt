@@ -4,7 +4,7 @@ import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.yongjincompany.android_assignment.R
-import com.yongjincompany.android_assignment.data.model.response.Card
+import com.yongjincompany.android_assignment.data.remote.model.response.Card
 import com.yongjincompany.android_assignment.data.repository.CardRepository
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow

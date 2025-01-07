@@ -1,7 +1,7 @@
 package com.yongjincompany.android_assignment.data.repository
 
-import com.yongjincompany.android_assignment.data.api.CardApi
-import com.yongjincompany.android_assignment.data.model.response.Card
+import com.yongjincompany.android_assignment.data.remote.api.CardApi
+import com.yongjincompany.android_assignment.data.remote.model.response.Card
 
 class CardRepository(private val cardApi: CardApi) {
     suspend fun fetchAllCardList(): Result<List<Card>> =

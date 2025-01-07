@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.yongjincompany.android_assignment.data.model.response.Card
+import com.yongjincompany.android_assignment.data.remote.model.response.Card
 import com.yongjincompany.android_assignment.databinding.ItemCardBinding
 
 class RecentReadCardListAdapter : ListAdapter<Card, CardViewHolder>(diffUtil) {

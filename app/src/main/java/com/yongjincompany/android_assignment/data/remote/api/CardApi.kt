@@ -1,6 +1,6 @@
-package com.yongjincompany.android_assignment.data.api
+package com.yongjincompany.android_assignment.data.remote.api
 
-import com.yongjincompany.android_assignment.data.model.response.Card
+import com.yongjincompany.android_assignment.data.remote.model.response.Card
 import retrofit2.http.GET
 import retrofit2.http.PATCH
 import retrofit2.http.Path
