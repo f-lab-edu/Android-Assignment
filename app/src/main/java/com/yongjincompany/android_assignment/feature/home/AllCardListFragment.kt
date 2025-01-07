@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.yongjincompany.android_assignment.core.util.SpacingItemDecoration
 import com.yongjincompany.android_assignment.core.util.repeatOnLifecycleState
 import com.yongjincompany.android_assignment.data.RepositoryBuilder
+import com.yongjincompany.android_assignment.data.local.AppDatabase
 import com.yongjincompany.android_assignment.databinding.FragmentAllCardListBinding
 import com.yongjincompany.android_assignment.feature.home.adapter.AllCardListAdapter
 import com.yongjincompany.android_assignment.feature.home.viewmodel.AllCardListViewModel
@@ -38,7 +39,9 @@ class AllCardListFragment : Fragment() {
     }
 
     private fun init() {
-        val viewModelFactory = AllCardListViewModelFactory(RepositoryBuilder.cardRepository)
+        val db = AppDatabase.getDatabase(requireContext())
+        val cardDao = db.cardDao()
+        val viewModelFactory = AllCardListViewModelFactory(RepositoryBuilder.cardRepository, cardDao)
         vm = ViewModelProvider(this, viewModelFactory)[AllCardListViewModel::class.java]
 
         allCardListAdapter = AllCardListAdapter()
