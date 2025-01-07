@@ -18,6 +18,7 @@ okhttp = "4.12.0"
 glide = "4.16.0"
 room = "2.6.1"
 ksp = "1.9.24-1.0.20"
+hilt = "2.52"
 
 
 [libraries]
@@ -40,9 +41,12 @@ retrofit-kotlin-serialization = { group = "com.jakewharton.retrofit", name = "re
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+dagger-hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
