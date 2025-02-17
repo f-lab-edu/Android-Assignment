@@ -4,15 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.yongjincompany.android_assignment.data.Card
-import com.yongjincompany.android_assignment.R
+import com.yongjincompany.android_assignment.data.remote.model.response.Card
+import com.yongjincompany.android_assignment.databinding.ItemCardBinding
 
 class RecentReadCardListAdapter : ListAdapter<Card, CardViewHolder>(diffUtil) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
-        val view = LayoutInflater
-            .from(parent.context)
-            .inflate(R.layout.item_card, parent, false)
-        return CardViewHolder(view, {})
+        val binding = ItemCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return CardViewHolder(binding, {})
     }
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
@@ -34,6 +32,15 @@ class RecentReadCardListAdapter : ListAdapter<Card, CardViewHolder>(diffUtil) {
             ): Boolean {
                 return oldItem == newItem
             }
+        }
+    }
+
+    fun removeFirstItem() {
+        val currentList = currentList.toMutableList()
+
+        if (currentList.isNotEmpty()) {
+            currentList.removeAt(0)
+            submitList(currentList)
         }
     }
 }

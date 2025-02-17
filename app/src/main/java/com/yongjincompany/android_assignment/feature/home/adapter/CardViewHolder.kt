@@ -1,30 +1,23 @@
 package com.yongjincompany.android_assignment.feature.home.adapter
 
-import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.yongjincompany.android_assignment.R
-import com.yongjincompany.android_assignment.data.Card
+import com.bumptech.glide.Glide
+import com.yongjincompany.android_assignment.data.remote.model.response.Card
+import com.yongjincompany.android_assignment.databinding.ItemCardBinding
 
-class CardViewHolder(itemView: View, private val listener: (Int) -> Unit) : ViewHolder(itemView) {
-    val cardName: TextView
-    val cardGrade: TextView
-    val cardImg: ImageView
+class CardViewHolder(private val binding: ItemCardBinding, private val listener: (Int) -> Unit) : ViewHolder(binding.root) {
 
     init {
-        cardName = itemView.findViewById(R.id.tv_card_name)
-        cardGrade = itemView.findViewById(R.id.tv_card_grade)
-        cardImg = itemView.findViewById(R.id.iv_card_img)
-
         itemView.setOnClickListener {
             listener(adapterPosition)
         }
     }
 
     fun bind(card: Card) {
-        cardImg.setImageResource(card.img)
-        cardName.text = card.name
-        cardGrade.text = card.grade.name
+        binding.tvCardName.text = card.name
+        binding.tvCardGrade.text = card.grade.name
+        Glide.with(binding.root.context)
+            .load(card.imageUrl)
+            .into(binding.ivCardImg)
     }
 }
